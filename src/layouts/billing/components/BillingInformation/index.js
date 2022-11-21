@@ -19,42 +19,61 @@ import Card from "@mui/material/Card";
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
-
-// Billing page components
-import Bill from "layouts/billing/components/Bill";
+import { useState, useEffect } from "react";
+import ExamContext from "context/context";
+import ExamList from "./ExamList";
+import Add from "./add";
 
 function BillingInformation() {
+  const [exams, setExam] = useState([]);
+
+  //  La fonction d'ajout d'examen
+  const addExam = (exam) => {
+    // eslint-disable-next-line no-param-reassign
+    exam.id = new Date().getTime();
+    exams.push(exam);
+    setExam([...exams]);
+  };
+  //  La fonction d'update
+  const editExam = (exam) => {
+    const examToChange = exams.map((value) => value.id).indexOf(exam.id);
+    exams[examToChange] = exam;
+    setExam([...exams]);
+  };
+
+  //  La fonction delete
+  const deleteExam = (exam) => {
+    const examToDelete = exams.map((value) => value.id).indexOf(exam.id);
+    exams.splice(examToDelete, 1);
+    setExam([...exams]);
+  };
+  const [state, setState] = useState({ addExam, editExam, deleteExam, exams });
+
+  useEffect(() => {
+    setState({
+      exams,
+      addExam,
+      editExam,
+      deleteExam,
+    });
+  }, [exams]);
+
   return (
-    <Card id="delete-account">
-      <MDBox pt={3} px={2}>
-        <MDTypography variant="h6" fontWeight="medium">
-          Billing Information
-        </MDTypography>
-      </MDBox>
-      <MDBox pt={1} pb={2} px={2}>
-        <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
-          <Bill
-            name="oliver liam"
-            company="viking burrito"
-            email="oliver@burrito.com"
-            vat="FRB1235476"
-          />
-          <Bill
-            name="lucas harper"
-            company="stone tech zone"
-            email="lucas@stone-tech.com"
-            vat="FRB1235476"
-          />
-          <Bill
-            name="ethan james"
-            company="fiber notion"
-            email="ethan@fiber.com"
-            vat="FRB1235476"
-            noGutter
-          />
+    <ExamContext.Provider value={state}>
+      <Card id="delete-account">
+        <MDBox pt={2} px={2} display="flex" justifyContent="space-between" alignItems="center">
+          <MDTypography variant="h6" fontWeight="medium">
+            Evaluations Information
+          </MDTypography>
+          <Add />
         </MDBox>
-      </MDBox>
-    </Card>
+        <MDBox pt={1} pb={2} px={2}>
+          <MDBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
+            <ExamList />
+          </MDBox>
+        </MDBox>
+      </Card>
+    </ExamContext.Provider>
   );
 }
 
