@@ -1,6 +1,6 @@
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-import useState from "react";
+import { useState } from "react";
 
 // @mui material components
 import Icon from "@mui/material/Icon";
@@ -17,6 +17,12 @@ import Modal from "@mui/material/Modal";
 import { useMaterialUIController } from "context";
 
 function Bill({ nb, titre, semestre, date, statut, noGutter }) {
+  const style = {
+    position: "absolute",
+    top: "20%",
+    left: "35%",
+    width: 700,
+  };
   const [controller] = useMaterialUIController();
   const { darkMode } = controller;
   const [isOpen, setOpen] = useState(false);
@@ -72,6 +78,7 @@ function Bill({ nb, titre, semestre, date, statut, noGutter }) {
                     <Icon>edit</Icon>&nbsp;edit
                   </MDButton>
                   <Modal
+                    sx={style}
                     open={isOpen}
                     onClose={onBtnClick}
                     aria-labelledby="modal-title"

@@ -58,9 +58,13 @@ function BillingInformation() {
     });
   }, [exams]);
 
+  const style = {
+    left: "35%",
+  };
+
   return (
     <ExamContext.Provider value={state}>
-      <Card id="delete-account">
+      <Card sx={style} id="delete-account">
         <MDBox pt={2} px={2} display="flex" justifyContent="space-between" alignItems="center">
           <MDTypography variant="h6" fontWeight="medium">
             Evaluations Information

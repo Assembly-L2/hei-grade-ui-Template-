@@ -12,6 +12,13 @@ function Add() {
   const onBtnClick = () => {
     setOpen(!isOpen);
   };
+
+  const style = {
+    position: "absolute",
+    top: "20%",
+    left: "35%",
+    width: 700,
+  };
   return (
     <ExamContext.Consumer>
       {({ addExam }) => {
@@ -26,6 +33,7 @@ function Add() {
               &nbsp;add new evaluation
             </MDButton>
             <Modal
+              sx={style}
               open={isOpen}
               onClose={onBtnClick}
               aria-labelledby="modal-title"

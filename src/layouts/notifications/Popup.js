@@ -83,18 +83,21 @@ function Popup(props) {
 
   const [count, setCount] = useState(formHandler.values.semestre);
   const incrementCount = () => {
+    if (count + 1 > 6) return;
     setCount(count + 1);
-    formHandler.setFieldValue("semestre", count);
   };
   const decrementCount = () => {
+    if (count - 1 < 1) return;
     setCount(count - 1);
-    formHandler.setFieldValue("semestre", count);
   };
+  useEffect(() => {
+    formHandler.setFieldValue("semestre", count);
+  }, [count]);
 
   return (
     <form onSubmit={formHandler.handleSubmit}>
       <Card>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
+        <Typography id="modal-modal-title" variant="h6" component="h2" ml={3} mt={2}>
           <h1>Evaluation</h1>
         </Typography>
         <MDBox pt={2} px={2} display="flex" justifyContent="center" alignItems="center">
@@ -136,12 +139,9 @@ function Popup(props) {
           display="column"
           justifyContent="center"
           alignItems="center"
-          width="25%"
+          width="45%"
         >
-          <MDTypography variant="h6" fontWeight="medium">
-            Statut :
-          </MDTypography>
-          <AppBar position="static">
+          <AppBar position="static" sx={{ ml: "70%", mr: "5%", mb: "2%", mt: "2%" }}>
             <Tabs orientation={tabsOrientation} value={tabValue} onChange={handleSetTabValue}>
               <Tab
                 label="A venir"
@@ -164,12 +164,12 @@ function Popup(props) {
         </MDBox>
         <MDButton
           type="submit"
-          variant="outlined"
-          color="info"
+          variant="gradient"
+          color="dark"
           size="small"
           pt={2}
           px={2}
-          sx={{ ml: "auto" }}
+          sx={{ ml: "70%", mr: "5%", mb: "2%", mt: "2%" }}
         >
           Enregister
         </MDButton>
