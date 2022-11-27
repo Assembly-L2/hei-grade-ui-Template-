@@ -18,6 +18,7 @@ import { useState } from "react";
 // @mui material components
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
+import Button from "@mui/material/Button";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
@@ -48,11 +49,11 @@ function Notifications() {
 
   const alertContent = (name) => (
     <MDTypography variant="body2" color="white">
-      A simple {name} alert with{" "}
+      Exam of {name}. Click{" "}
       <MDTypography component="a" href="#" variant="body2" fontWeight="medium" color="white">
-        an example link
+        HERE{" "}
       </MDTypography>
-      . Give it a click if you like.
+      for more details!
     </MDTypography>
   );
 
@@ -117,33 +118,29 @@ function Notifications() {
         <Grid container spacing={3} justifyContent="center">
           <Grid item xs={12} lg={8}>
             <Card>
-              <MDBox p={2}>
-                <MDTypography variant="h5">Alerts</MDTypography>
-              </MDBox>
+              <Grid container direction="row" justifyContent="space-between">
+                <MDBox p={2}>
+                  <MDTypography variant="h5">Upcoming evaluations</MDTypography>
+                </MDBox>
+                <Button p={2} variant="gradient" color="warning" size="small">
+                  Create
+                </Button>
+                <MDBox>
+                  <MDBox id="modal-title">
+                    <h1>Matière</h1>
+                  </MDBox>
+                  <MDBox id="modal-body">lol</MDBox>
+                </MDBox>
+              </Grid>
               <MDBox pt={2} px={2}>
-                <MDAlert color="primary" dismissible>
-                  {alertContent("primary")}
-                </MDAlert>
-                <MDAlert color="secondary" dismissible>
-                  {alertContent("secondary")}
-                </MDAlert>
-                <MDAlert color="success" dismissible>
-                  {alertContent("success")}
-                </MDAlert>
-                <MDAlert color="error" dismissible>
-                  {alertContent("error")}
+                <MDAlert color="warning" dismissible>
+                  {alertContent("(Exam name)")}
                 </MDAlert>
                 <MDAlert color="warning" dismissible>
-                  {alertContent("warning")}
+                  {alertContent("(Exam name)")}
                 </MDAlert>
-                <MDAlert color="info" dismissible>
-                  {alertContent("info")}
-                </MDAlert>
-                <MDAlert color="light" dismissible>
-                  {alertContent("light")}
-                </MDAlert>
-                <MDAlert color="dark" dismissible>
-                  {alertContent("dark")}
+                <MDAlert color="warning" dismissible>
+                  {alertContent("(Exam name)")}
                 </MDAlert>
               </MDBox>
             </Card>
