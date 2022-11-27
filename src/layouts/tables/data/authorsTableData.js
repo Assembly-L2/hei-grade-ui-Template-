@@ -27,149 +27,162 @@ import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
 
 export default function data() {
-  const Author = ({ image, name, email }) => (
+  const Author = ({ image, name }) => (
     <MDBox display="flex" alignItems="center" lineHeight={1}>
       <MDAvatar src={image} name={name} size="sm" />
       <MDBox ml={2} lineHeight={1}>
         <MDTypography display="block" variant="button" fontWeight="medium">
           {name}
         </MDTypography>
-        <MDTypography variant="caption">{email}</MDTypography>
       </MDBox>
     </MDBox>
   );
 
-  const Job = ({ title, description }) => (
+  const Prog = ({ note }) => (
     <MDBox lineHeight={1} textAlign="left">
-      <MDTypography display="block" variant="caption" color="text" fontWeight="medium">
-        {title}
+      <MDTypography variant="caption" fontWeight="medium">
+        {note}
       </MDTypography>
-      <MDTypography variant="caption">{description}</MDTypography>
+    </MDBox>
+  );
+
+  const Ref = ({ STD }) => (
+    <MDBox lineHeight={1} textAlign="left">
+      <MDTypography variant="button" fontWeight="medium">
+        {STD}
+      </MDTypography>
     </MDBox>
   );
 
   return {
     columns: [
-      { Header: "author", accessor: "author", width: "45%", align: "left" },
-      { Header: "function", accessor: "function", align: "left" },
+      { Header: "reference", accessor: "reference", align: "left" },
+      { Header: "name and lastname", accessor: "student", width: "45%", align: "left" },
+      { Header: "prog", accessor: "prog", align: "center" },
+      { Header: "sys", accessor: "sys", align: "center" },
+      { Header: "web", accessor: "web", align: "center" },
       { Header: "status", accessor: "status", align: "center" },
-      { Header: "employed", accessor: "employed", align: "center" },
-      { Header: "action", accessor: "action", align: "center" },
     ],
 
     rows: [
       {
-        author: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
-        function: <Job title="Manager" description="Organization" />,
+        reference: <Ref STD="STD21017" />,
+        student: <Author image={team2} name="John Michael" />,
+        prog: <Prog note="20" />,
+        sys: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
+        web: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+            <MDBadge badgeContent="ADMIT" color="success" variant="gradient" size="sm" />
           </MDBox>
-        ),
-        employed: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            23/04/18
-          </MDTypography>
-        ),
-        action: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
-          </MDTypography>
         ),
       },
       {
-        author: <Author image={team3} name="Alexa Liras" email="alexa@creative-tim.com" />,
-        function: <Job title="Programator" description="Developer" />,
+        reference: <Ref STD="STD21017" />,
+        student: <Author image={team3} name="Alexa Liras" />,
+        prog: <Prog note="20" />,
+        sys: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
+        web: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="EXPELED" color="error" variant="gradient" size="sm" />
           </MDBox>
-        ),
-        employed: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            11/01/19
-          </MDTypography>
-        ),
-        action: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
-          </MDTypography>
         ),
       },
       {
-        author: <Author image={team4} name="Laurent Perrier" email="laurent@creative-tim.com" />,
-        function: <Job title="Executive" description="Projects" />,
+        reference: <Ref STD="STD21017" />,
+        student: <Author image={team4} name="Laurent Perrier" />,
+        prog: <Prog note="20" />,
+        sys: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
+        web: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+            <MDBadge badgeContent="ADMIT" color="success" variant="gradient" size="sm" />
           </MDBox>
-        ),
-        employed: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            19/09/17
-          </MDTypography>
-        ),
-        action: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
-          </MDTypography>
         ),
       },
       {
-        author: <Author image={team3} name="Michael Levi" email="michael@creative-tim.com" />,
-        function: <Job title="Programator" description="Developer" />,
+        reference: <Ref STD="STD21017" />,
+        student: <Author image={team3} name="Michael Levi" />,
+        prog: <Prog note="20" />,
+        sys: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
+        web: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="online" color="success" variant="gradient" size="sm" />
+            <MDBadge badgeContent="EXPELED" color="error" variant="gradient" size="sm" />
           </MDBox>
-        ),
-        employed: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            24/12/08
-          </MDTypography>
-        ),
-        action: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
-          </MDTypography>
         ),
       },
       {
-        author: <Author image={team3} name="Richard Gran" email="richard@creative-tim.com" />,
-        function: <Job title="Manager" description="Executive" />,
+        reference: <Ref STD="STD21017" />,
+        student: <Author image={team3} name="Richard Gran" />,
+        prog: <Prog note="20" />,
+        sys: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
+        web: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="ADMIT" color="success" variant="gradient" size="sm" />
           </MDBox>
-        ),
-        employed: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            04/10/21
-          </MDTypography>
-        ),
-        action: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
-          </MDTypography>
         ),
       },
       {
-        author: <Author image={team4} name="Miriam Eric" email="miriam@creative-tim.com" />,
-        function: <Job title="Programator" description="Developer" />,
+        reference: <Ref STD="STD21017" />,
+        student: <Author image={team4} name="Miriam Eric" />,
+        prog: <Prog note="20" />,
+        sys: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
+        web: (
+          <MDTypography variant="caption" fontWeight="medium">
+            13
+          </MDTypography>
+        ),
         status: (
           <MDBox ml={-1}>
-            <MDBadge badgeContent="offline" color="dark" variant="gradient" size="sm" />
+            <MDBadge badgeContent="expeled" color="error" variant="gradient" size="sm" />
           </MDBox>
-        ),
-        employed: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            14/09/20
-          </MDTypography>
-        ),
-        action: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            Edit
-          </MDTypography>
         ),
       },
     ],

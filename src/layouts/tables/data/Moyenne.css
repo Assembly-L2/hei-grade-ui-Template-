@@ -1,0 +1,25 @@
+.section {
+    margin-left: 50px;
+    width: 98%;
+    background: linear-gradient(195deg, #FFA726, #FB8C00);
+    border: 1em ;
+    border-radius: 1em;
+    margin-top: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-top: 10px;
+    box-shadow: 0rem 0.50rem 1.25rem 0rem rgb(0 0 0 / 14%), 
+                0rem 0.4375rem 0.625rem -0.3125rem rgba(196, 200, 201, 0.911);
+    color: #344767;
+    font-weight: 700;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+.result {
+    margin-left: 20px;
+}
+.buton {
+    margin-left: 145px;
+    margin-top: 30px;
+}
